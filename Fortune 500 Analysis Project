@@ -1,0 +1,19 @@
+SELECT company_name,
+CASE WHEN revenue >= 500 THEN 'High Revenue'
+WHEN revenue >= 250 AND revenue < 500 THEN 'Medium Revenue'
+ELSE 'Low Revenue'
+END AS revenue_category
+FROM fortune_companies;
+
+SELECT industry, AVG(revenue) AS avg_revenue
+FROM fortune_companies
+GROUP BY industry
+HAVING avg_revenue>300;
+
+SELECT *
+FROM fortune_companies
+WHERE industry = 'Healthcare'
+AND employees > 3000;
+
+SELECT AVG(revenue) AS avg_revenue, MAX(employees) AS max_employees
+FROM fortune_companies;
